@@ -1,0 +1,13 @@
+.idea
+.idea/
+
+venv
+venv/
+
+*.pyc
+
+app.log
+db.sqlite
+dump.rdb
+
+.env

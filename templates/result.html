@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block result %}
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <table class="table table-bordered table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Address</th>
+            <th scope="col">Words count</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for res in results %}
+            <tr>
+                <th scope="row"><a href="{{ res.address }}">{{ res.address }}</a></th>
+                <td>{{ res.words_count }}</td>
+                <td><span>{{ res.http_status_code }}</span></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script type='text/javascript'>
+        window.onload = function () {
+            if (!window.location.hash) {
+                window.location = window.location + '#loaded';
+                window.location.reload();
+            }
+        };
+    </script>
+{% endblock %}
